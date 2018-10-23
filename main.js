@@ -9,8 +9,12 @@ function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600})
 
-  // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  // Load Google Chat. 
+  mainWindow.loadURL("https://chat.google.com");
+  mainWindow.webContents.on('did-finish-load', function() {
+    insertCustomCss(mainWindow);
+    
+  })
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -21,6 +25,16 @@ function createWindow () {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null
+  })
+}
+
+const _fs = require("fs");
+function insertCustomCss(mainWindow) {
+  _fs.readFile('darktheme.css', "utf-8", function(error, data) {
+    if(!error){
+      var formatedData = data.replace(/\s{2,10}/g, ' ').trim()
+      mainWindow.webContents.insertCSS(formatedData)
+    }
   })
 }
 

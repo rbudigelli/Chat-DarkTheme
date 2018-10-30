@@ -7,7 +7,12 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  //mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({
+    webPreferences: {
+      nodeIntegration: false
+    }
+  })
 
   // Load Google Chat. 
   mainWindow.loadURL("https://chat.google.com");
@@ -28,7 +33,7 @@ function createWindow () {
   })
 }
 
-const _fs = require("fs");
+const _fs = require("fs")
 function insertCustomCss(mainWindow) {
   _fs.readFile('darktheme.css', "utf-8", function(error, data) {
     if(!error){

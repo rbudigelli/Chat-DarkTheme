@@ -21,6 +21,13 @@ function createWindow () {
     
   })
 
+  const shell = require('electron').shell;
+
+  mainWindow.webContents.on('new-window', (event, url) => {
+    event.preventDefault()
+    shell.openExternal(url)
+  });
+
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 

@@ -29,7 +29,7 @@ function createWindow () {
   });
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  //mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -38,11 +38,28 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  const Menu = require('electron').Menu
+
+  const template = [{
+      label: "Edit",
+      submenu: [
+          { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
+          { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
+          { type: "separator" },
+          { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
+          { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+          { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
+          { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+      ]}
+  ];
+
+  Menu.setApplicationMenu(Menu.buildFromTemplate(template));  
 }
 
 const _fs = require("fs")
 function insertCustomCss(mainWindow) {
-  _fs.readFile('darktheme.css', "utf-8", function(error, data) {
+  _fs.readFile(__dirname + '/darktheme.css', "utf-8", function(error, data) {
     if(!error){
       var formatedData = data.replace(/\s{2,10}/g, ' ').trim()
       mainWindow.webContents.insertCSS(formatedData)

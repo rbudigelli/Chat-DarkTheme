@@ -1,5 +1,6 @@
 {
   "name": "Chat-DarkTheme",
+  "productName": "Google Chat Dark Theme",
   "version": "1.0.0",
   "description": "Google Chat Dark Theme",
   "main": "main.js",
@@ -17,6 +18,7 @@
   "author": "Ravi Budigelli",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^3.0.4"
+    "electron": "^3.0.4",
+    "electron-packager": "^13.0.1"
   }
 }

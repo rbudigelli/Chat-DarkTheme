@@ -22,7 +22,13 @@ Note: If you're using Linux Bash for Windows, [see this guide](https://www.howto
 ```electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds```
 
 ## To build DMG File
-Use Disk Utility
+1. Copy the .app file to a new folder named `GoogleChatDark` on your desktop
+2. Use Disk Utility > File > New Image... > New Image From Folder
+3. Choose the folder where .app was copied to
+4. When the dialog appears, choose Image Format > read/write and 'save'
+5. Once DMG is generated, double-click to mount it
+6. From command line, navigate into the DMG `cd /Volumes/GoogleChatDark`
+7. Create a link to Applications folder `ln -s /Applications Applications`
 
 ## Resources for Learning Electron
 

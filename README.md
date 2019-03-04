@@ -7,7 +7,7 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 
 ```bash
 # Clone this repository
-git clone https://github.com/rbudigelli/Chat-DarkTheme
+git clone https://github.com/mark-mccullough/Chat-DarkTheme
 # Go into the repository
 cd Chat-DarkTheme
 # Install dependencies
@@ -17,6 +17,12 @@ npm start
 ```
 
 Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+
+## To Build .app file From Project Root
+electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds
+
+## To build DMG File
+Use Disk Utility
 
 ## Resources for Learning Electron
 

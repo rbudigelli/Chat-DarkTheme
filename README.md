@@ -7,7 +7,7 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 
 ```bash
 # Clone this repository
-git clone https://github.com/rbudigelli/Chat-DarkTheme
+git clone https://github.com/mark-mccullough/Chat-DarkTheme
 # Go into the repository
 cd Chat-DarkTheme
 # Install dependencies
@@ -17,6 +17,18 @@ npm start
 ```
 
 Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+
+## To Build .app file From Project Root
+```electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds```
+
+## To build DMG File
+1. Copy the .app file to a new folder named `GoogleChatDark` on your desktop
+2. Use Disk Utility > File > New Image... > New Image From Folder
+3. Choose the folder where .app was copied to
+4. When the dialog appears, choose Image Format > read/write and 'save'
+5. Once DMG is generated, double-click to mount it
+6. From command line, navigate into the DMG `cd /Volumes/GoogleChatDark`
+7. Create a link to Applications folder `ln -s /Applications Applications`
 
 ## Resources for Learning Electron
 
